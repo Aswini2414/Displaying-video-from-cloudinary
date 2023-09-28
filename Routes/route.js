@@ -66,6 +66,17 @@ router.get("/getdata", async (req, res) => {
     } catch (error) {
         res.status(400).json({ error: error.message });
     }
-})
+});
+
+router.get("/", async (req, res) => {
+    try {
+        const getUser = await users.find();
+        res.status(200).json(getUser);
+        
+    } catch (error) {
+        res.status(400).json({ error: error.message });
+    }
+    
+});
 
 module.exports = router;
